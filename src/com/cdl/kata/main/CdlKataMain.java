@@ -12,26 +12,30 @@ import com.cdl.kata.services.ShopingBasketService;
 
 public class CdlKataMain {
 
+	private static final String EXIT_STRING = "exit";
+
 	public static void main(String[] args) {
 		try (Scanner inputScanner = new Scanner(System.in)) {
 			
 			ProductAndOfferInventory productAndOfferInventory = InventoryGeneratorService.generateInitialInventories();
 			
 			System.out.println("Please enter product that you want to buy.");
-			System.out.println("All Valid products are: " + ProductAndOfferInventoryService.getAllProductName(productAndOfferInventory));
+			
 			
 			Basket basket = new Basket();
 			String inputproduct = null;
-			while (!"wq".equals(inputproduct)) {
-				System.out.println("Your product: ");
+			while (!EXIT_STRING.equals(inputproduct)) {
+				System.out.println("Your product from [" + ProductAndOfferInventoryService.getAllProductName(productAndOfferInventory) +"]. For checkout type: "+EXIT_STRING);
 				inputproduct = inputScanner.nextLine();
 				ProductItem productIterm = ProductItemService.getProductItem(inputproduct, productAndOfferInventory);
+				
+				
 				if(productIterm == null) {
 					System.out.println("Please enter valid product");
 					System.out.println("All Valid products are: " + ProductAndOfferInventoryService.getAllProductName(productAndOfferInventory));
-				} else {
+				} else if (!EXIT_STRING.equals(inputproduct)) {
 					basket = ShopingBasketService.calculateNewBasket(productIterm, basket, productAndOfferInventory);
-				}
+				} 
 				
 			}
 			
