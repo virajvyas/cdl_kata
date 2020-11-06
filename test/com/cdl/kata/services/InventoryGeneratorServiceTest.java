@@ -27,23 +27,23 @@ public class InventoryGeneratorServiceTest {
 		assertNotNull(productAndOfferInventory.getAvailableItems().get(3).getProductItem());
 		
 		assertEquals(productAndOfferInventory.getAvailableItems().get(0).getProductItem().getName(), "A");
-		assertEquals(productAndOfferInventory.getAvailableItems().get(0).getProductItem().getCaragory(), "Cat1");
+		assertEquals(productAndOfferInventory.getAvailableItems().get(0).getProductItem().getCaragory().getName(), "Cat1");
 		assertTrue(productAndOfferInventory.getAvailableItems().get(0).getProductItem().getPrice() == FIFTY);
 		
 		assertEquals(productAndOfferInventory.getAvailableItems().get(1).getProductItem().getName(), "B");
-		assertEquals(productAndOfferInventory.getAvailableItems().get(1).getProductItem().getCaragory(), "Cat2");
+		assertEquals(productAndOfferInventory.getAvailableItems().get(1).getProductItem().getCaragory().getName(), "Cat2");
 		assertTrue(productAndOfferInventory.getAvailableItems().get(1).getProductItem().getPrice() == 30.0);
 		
 		assertEquals(productAndOfferInventory.getAvailableItems().get(2).getProductItem().getName(), "C");
-		assertEquals(productAndOfferInventory.getAvailableItems().get(2).getProductItem().getCaragory(), "Cat3");
+		assertEquals(productAndOfferInventory.getAvailableItems().get(2).getProductItem().getCaragory().getName(), "Cat3");
 		assertTrue(productAndOfferInventory.getAvailableItems().get(2).getProductItem().getPrice() == 20.0);
 		
 		assertEquals(productAndOfferInventory.getAvailableItems().get(3).getProductItem().getName(), "D");
-		assertEquals(productAndOfferInventory.getAvailableItems().get(3).getProductItem().getCaragory(), "Cat4");
+		assertEquals(productAndOfferInventory.getAvailableItems().get(3).getProductItem().getCaragory().getName(), "Cat4");
 		assertTrue(productAndOfferInventory.getAvailableItems().get(3).getProductItem().getPrice() == 15.0);
 		
 		
-		assertEquals(productAndOfferInventory.getAvailableOffers(), 2);
+		assertEquals(productAndOfferInventory.getAvailableOffers().size(), 2);
 		
 		assertNotNull(productAndOfferInventory.getAvailableOffers().get(0).getAppliedCatagories());
 		assertNotNull(productAndOfferInventory.getAvailableOffers().get(1).getAppliedCatagories());
@@ -52,7 +52,7 @@ public class InventoryGeneratorServiceTest {
 		assertTrue(productAndOfferInventory.getAvailableOffers().get(0).getGroupNumber() == 3);
 		assertTrue(productAndOfferInventory.getAvailableOffers().get(0).getGroupPrice() == 130.0);
 		
-		assertEquals(productAndOfferInventory.getAvailableOffers().get(0).getAppliedCatagories().get(1).getName(), "Cat2");
+		assertEquals(productAndOfferInventory.getAvailableOffers().get(1).getAppliedCatagories().get(0).getName(), "Cat2");
 		assertTrue(productAndOfferInventory.getAvailableOffers().get(1).getGroupNumber() == 2);
 		assertTrue(productAndOfferInventory.getAvailableOffers().get(1).getGroupPrice() == 45.0);
 		

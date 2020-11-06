@@ -34,20 +34,20 @@ public class ShopingBasketServiceTest {
 		assertEquals(existingBasket.getOffersMap().entrySet().size(), 1);
 		assertEquals(existingBasket.getProductMap().entrySet().size(), 1);
 		
-		assertEquals(existingBasket.getOffersMap().get(getProduct2()), new Integer(1));
-		assertEquals(existingBasket.getProductMap().keySet().iterator().next().getName(), "Cat1");
+		assertTrue(existingBasket.getProductMap().get(getProduct2()) == 1);
+		assertEquals(existingBasket.getOffersMap().keySet().iterator().next().getName(), "Offer1");
 		
 		//Add again
 		existingBasket = ShopingBasketService.calculateNewBasket(getProduct1(), existingBasket,
 				getProductAndOfferInventory());
 
 		assertNotNull(existingBasket);
-		assertEquals(existingBasket.getOffersMap().entrySet().size(), 2);
-		assertEquals(existingBasket.getProductMap().entrySet().size(), 1);
+		assertEquals(existingBasket.getOffersMap().entrySet().size(), 1);
+		assertEquals(existingBasket.getProductMap().entrySet().size(), 2);
 		
-		assertEquals(existingBasket.getOffersMap().get(getProduct2()), new Integer(1));
-		assertEquals(existingBasket.getOffersMap().get(getProduct1()), new Integer(1));
-		assertEquals(existingBasket.getProductMap().keySet().iterator().next().getName(), "Cat1");
+		assertEquals(existingBasket.getProductMap().get(getProduct2()), new Integer(1));
+		assertEquals(existingBasket.getProductMap().get(getProduct1()), new Integer(1));
+		assertEquals(existingBasket.getOffersMap().keySet().iterator().next().getName(), "Offer1");
 	}
 	
 	@Test

@@ -4,8 +4,6 @@ public class ProductItem {
 	private String name;
 	private float price;
 	private ProductCatagory caragory;
-
-	
 	
 	public ProductItem(String name, float price, ProductCatagory caragory) {
 		this.name = name;
@@ -40,13 +38,22 @@ public class ProductItem {
 	@Override
 	public int hashCode() {
 		// This can be improved
-		return super.hashCode();
+		return name.hashCode();
 	}
 
+	// This can be imroved
 	@Override
 	public boolean equals(Object obj) {
-		// This can be improved
-		return super.equals(obj);
+		if((obj == null) || (getClass() != obj.getClass())){
+	        return false;
+	    }
+		ProductItem prroductItem = (ProductItem) obj;
+		if(prroductItem.getName().equals(name)) {
+			return true;
+		} else {
+			return false;
+		}
+		
 	}
 
 	@Override

@@ -63,6 +63,28 @@ public class Offers {
 	public void setOfferEndDate(LocalDate offerEndDate) {
 		this.offerEndDate = offerEndDate;
 	}
+	@Override
+	public int hashCode() {
+		// Improve me
+		return name.hashCode();
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if((obj == null) || (getClass() != obj.getClass())){
+	        return false;
+	    }
+		Offers offer = (Offers) obj;
+		if(offer.getName().equals(name)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	@Override
+	public String toString() {
+		// Improve me
+		return super.toString();
+	}
 	
 	
 	

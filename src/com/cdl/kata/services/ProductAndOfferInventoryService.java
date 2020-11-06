@@ -1,6 +1,7 @@
 package com.cdl.kata.services;
 
 import com.cdl.kata.model.ProductAndOfferInventory;
+import com.cdl.kata.model.StockItem;
 
 /**
  * Service related to ProductAndOfferInventory.
@@ -18,7 +19,19 @@ public class ProductAndOfferInventoryService {
 	 * @return comma separated all products name.
 	 */
 	public static String getAllProductName(ProductAndOfferInventory productAndOfferInventory) {
-		return null;
+		StringBuffer sb = new StringBuffer();
+		boolean isFirst = true;
+		for(StockItem stockItem : productAndOfferInventory.getAvailableItems()) {
+			if(isFirst) {
+				sb.append(stockItem.getProductItem().getName());
+				isFirst = false;
+			} else {
+				sb.append(", ");
+				sb.append(stockItem.getProductItem().getName());
+			}
+		}
+		
+		return sb.toString();
 	}
 
 }
